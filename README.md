@@ -3,7 +3,7 @@
 _A logical, reasonably standardized, but flexible project structure for doing and sharing data science work._
 
 
-#### [Project homepage](http://drivendata.github.io/cookiecutter-data-science/)
+#### [Original cookiecutter-data-science project homepage](http://drivendata.github.io/cookiecutter-data-science/)
 
 
 ### Requirements to use the cookiecutter template:
@@ -18,15 +18,23 @@ $ pip install cookiecutter
 or
 
 ``` bash
-$ conda config --add channels conda-forge
-$ conda install cookiecutter
+$ conda install -c conda-forge cookiecutter
 ```
 
 
 ### To start a new project, run:
 ------------
 
-    cookiecutter https://github.com/drivendata/cookiecutter-data-science
+```
+$ cookiecutter https://github.com/scholer/cookiecutter-PAINT-analysis
+```
+
+Or, if you have your own local copy of this template:
+
+```
+$ python -m cookiecutter /path/to/your/cookiecutter-project
+```
+
 
 
 [![asciicast](https://asciinema.org/a/244658.svg)](https://asciinema.org/a/244658)
@@ -38,18 +46,14 @@ $ conda install cookiecutter
 The directory structure of your new project looks like this: 
 
 ```
-├── LICENSE
 ├── Makefile           <- Makefile with commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
+│
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
+│   ├── 0-raw-data     <- The original, immutable data dump.
+│   ├── 1-localize     <- Intermediate data that has been transformed.
+│   ├── 2-render       <- The final, canonical data sets for modeling.
+│   └── external       <- Data from third party sources.
 │
 ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
 │                         the creator's initials, and a short `-` delimited description, e.g.
@@ -60,25 +64,14 @@ The directory structure of your new project looks like this:
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
 ├── src                <- Source code for use in this project.
 │   ├── __init__.py    <- Makes src a Python module
-│   │
 │   ├── data           <- Scripts to download or generate data
 │   │   └── make_dataset.py
-│   │
-│   ├── features       <- Scripts to turn raw data into features for modeling
-│   │   └── build_features.py
-│   │
-│   ├── models         <- Scripts to train models and then use trained models to make
-│   │   │                 predictions
-│   │   ├── predict_model.py
-│   │   └── train_model.py
-│   │
 │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
 │       └── visualize.py
+├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze > requirements.txt`
 │
 └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 ```
